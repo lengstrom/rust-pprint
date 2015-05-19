@@ -5,6 +5,8 @@
 // 	// stream:Option::None // Object is a stream
 // }
 
+extern crate serde;
+
 struct PPrinter {
 	indent:u16,
 	width:u16,
