@@ -5,39 +5,45 @@
 // 	// stream:Option::None // Object is a stream
 // }
 
+#![allow(dead_code)]
+
 extern crate serde;
 
 struct PPrinter {
 	indent:u16,
 	width:u16,
-	depth:Option
-	stream:Option
+	depth:Option<u16>,
+	stream:Option<bool>
 }
 
 impl PPrinter {
 	fn width(&mut self, width : u16) -> &mut PPrinter {
-		self.width = width
-		self
+		self.width = width;
+		return self;
 	}
 
 	fn indent(&mut self, indent : u16) -> &mut PPrinter {
-		self.indent = indent
-		self
+		self.indent = indent;
+		return self;
 	}
 
-	fn depth(&mut self, depth : Option) -> &mut PPrinter {
-		self.depth = depth
-		self
+	fn depth(&mut self, depth : Option<u16>) -> &mut PPrinter {
+		self.depth = depth;
+		return self;
 	}
 
-	fn stream(&mut self, stream : Option) -> &mut PPrinter {
-		self.stream = stream
-		self
+	fn stream(&mut self, stream : Option<bool>) -> &mut PPrinter {
+		self.stream = stream;
+		return self;
 	}
 }
 
 macro_rules! PPrint {
-	() => ()
+	( $( $x:expr ),* ) => {
+		{
+			
+		}
+	};
 }
 
 
