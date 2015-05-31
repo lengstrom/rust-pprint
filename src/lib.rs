@@ -8,6 +8,7 @@
 #![allow(dead_code)]
 
 extern crate serde;
+use serde::json;
 
 struct PPrinter {
 	indent:u16,
@@ -46,7 +47,18 @@ macro_rules! PPrint {
 	};
 }
 
+// to_string_pretty
+struct Point {
+    x: i32,
+    y: i32,
+}
+
 
 #[test]
 fn it_works() {
+	// let point : json::value::Value = Point { x: 1, y: 2 };
+	let a = json::value::Value::Object(Point { x: 1, y: 2 });
+	let serialized_point = json::to_string_pretty(&a).unwrap();
+
+	println!("{}", serialized_point); // prints: {"x":1,"y":2}
 }
